@@ -256,7 +256,7 @@ surround the code chunk with blank lines.
 
 ## Citations
 
-This is a sentence that has a citation from my BetterBibTex Zotero library `.bib` file[@2023SiegelCancerstatistics2023].
+This is a sentence that has a citation from my BetterBibTex Zotero library `.bib` file.[@2023SiegelCancerstatistics2023; @2022Aganezovcompletereferencegenome; @2016ChenXGBoostScalableTree; @2009LiFastaccurateshort; @2023NirmalarajahUsewholegenome]
 
 Cite eg people that told you information via word of mouth with `[\@Name]`: [\@Leo].
 Or could cite in a footnote instead...
