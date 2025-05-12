@@ -9,7 +9,7 @@ author: 'Leo Williams'
 
 
 # Citations ################################################################
-bibliography: '/Users/leo/Documents/_my-current-config/my-zotero-library.bib'
+bibliography: '/Users/leo/Zotero/my-zotero-library.bib'
 # csl: /Users/leo/Zotero/styles/nature.csl
 csl: /Users/leo/Zotero/styles/ieee.csl # to distinguish citations from footnotes
 
@@ -136,6 +136,7 @@ format:
 
 ---
 
+# SETUP
 
 ```{r}
 #| label: _setup
