@@ -136,120 +136,6 @@ format:
 
 ---
 
-# Setup & Render
-
-This is a chunk that enables you to work in a standard `.md` document, but then to use the power of `quarto` to render to PDF, DOCX, or other formats.
-To render in the new `Positron` editor, you must switch to source view and render this chunk in order for `rstudioapi::getSourceEditorContext()$path` to work.
-
-::: {.callout-note}
-Note: If there is trouble running the following chunk, reinstall tinytex with: 
-
-```r
-install.packages('tinytex')
-tinytex::install_tinytex()
-```
-:::
-
-
-```{r}
-#| label: _render
-#| eval: false
-
-library(quarto)
-
-# # get abs filepath of document
-# f_md = tools::file_path_as_absolute(rstudioapi::getSourceEditorContext()$path)
-# getwd()
-# .........................
-# Get the current script's path
-# f_md = rstudioapi::_getActiveDocumentContext_()$path
-# if (is.null(f_md)) {
-# 	f_md = here::here("template--quarto.md")  # Fallback to a default path
-# }
-# .........................
-# Get the current script's path
-f_md = rstudioapi::getActiveDocumentContext()$path
-
-# create timestamp
-timestamp = format(Sys.time(), "v%Y%m%d-%H%M%S")
-
-
-# get dirname of document
-d_f_md = dirname(f_md)
-
-# make render output dest dir if doesn't already exist
-d_f_md_render = file.path(d_f_md, "_RENDER")
-dir.create(d_f_md_render, recursive = TRUE)
-
-# make timestamped subdir
-d_f_md_render_ts = file.path(d_f_md_render, paste0("_RENDER-", timestamp))
-dir.create(d_f_md_render_ts, recursive = TRUE)
-
-# change to dir of current document
-setwd(d_f_md)
-
-# check current working dir
-getwd()
-
-# open working dir
-system(paste("open", shQuote(d_f_md_render_ts)))
-
-
-# get document basename
-basename_f_md = basename(f_md)
-# remove ext from basename
-rootname_f_md = tools::file_path_sans_ext(basename_f_md)
-# make duplicate file basename and convert to .qmd
-basename_f_qmd = paste0(rootname_f_md, "--_RENDER-", timestamp, ".qmd")
-
-
-# make abs filepath for .qmd file
-f_qmd_render = paste0(d_f_md_render_ts, "/", basename_f_qmd)
-
-# make copy of file for Quarto render
-file.copy(
-	from = f_md,
-	to = f_qmd_render,
-	overwrite = TRUE
-)
-
-# copy assets folder to render dir
-d_assets = file.path(d_f_md, "assets")
-if (dir.exists(d_assets)) {
-	file.copy(
-		from = d_assets,
-		to = d_f_md_render_ts,
-		recursive = TRUE,
-		overwrite = TRUE
-	)
-}
-
-
-# specify formats to render
-v_s_render_formats = c('pdf', 'docx')
-
-# # change working dir to render output dir
-# setwd(d_f_qmd_render)
-# # check current working render dir
-# getwd()
-# # open working render dir
-# system(paste("open", shQuote(d_f_qmd_render)))
-
-
-
-# render .qmd file using Quarto
-quarto::quarto_render(
-	input = f_qmd_render, 
-  # output_format = 'pdf'
-  output_format = v_s_render_formats
-)
-
-# # open rendered file after it renders
-# f_qmd_pdf = paste0(tools::file_path_sans_ext(f_qmd), ".pdf")
-# system(paste0('open ', f_qmd_pdf))
-
-
-```
 
 ```{r}
 #| label: _setup
@@ -850,3 +736,118 @@ Some content here...
 [^quarto1]: [Quarto](https://quarto.org/)
 [^quarto2]: [Quarto Guide](https://quarto.org/docs/guide/)
 [^quarto3]: [Quarto Reference](https://quarto.org/docs/reference/)
+
+# _RENDER
+
+This is a chunk that enables you to work in a standard `.md` document, but then to use the power of `quarto` to render to PDF, DOCX, or other formats.
+To render in the new `Positron` editor, you must switch to source view and render this chunk in order for `rstudioapi::getSourceEditorContext()$path` to work.
+
+::: {.callout-note}
+Note: If there is trouble running the following chunk, reinstall tinytex with: 
+
+```r
+install.packages('tinytex')
+tinytex::install_tinytex()
+```
+:::
+
+
+```{r}
+#| label: _render
+#| eval: false
+
+library(quarto)
+
+# # get abs filepath of document
+# f_md = tools::file_path_as_absolute(rstudioapi::getSourceEditorContext()$path)
+# getwd()
+# .........................
+# Get the current script's path
+# f_md = rstudioapi::_getActiveDocumentContext_()$path
+# if (is.null(f_md)) {
+# 	f_md = here::here("template--quarto.md")  # Fallback to a default path
+# }
+# .........................
+# Get the current script's path
+f_md = rstudioapi::getActiveDocumentContext()$path
+
+# create timestamp
+timestamp = format(Sys.time(), "v%Y%m%d-%H%M%S")
+
+
+# get dirname of document
+d_f_md = dirname(f_md)
+
+# make render output dest dir if doesn't already exist
+d_f_md_render = file.path(d_f_md, "_RENDER")
+dir.create(d_f_md_render, recursive = TRUE)
+
+# make timestamped subdir
+d_f_md_render_ts = file.path(d_f_md_render, paste0("_RENDER-", timestamp))
+dir.create(d_f_md_render_ts, recursive = TRUE)
+
+# change to dir of current document
+setwd(d_f_md)
+
+# check current working dir
+getwd()
+
+# open working dir
+system(paste("open", shQuote(d_f_md_render_ts)))
+
+
+# get document basename
+basename_f_md = basename(f_md)
+# remove ext from basename
+rootname_f_md = tools::file_path_sans_ext(basename_f_md)
+# make duplicate file basename and convert to .qmd
+basename_f_qmd = paste0(rootname_f_md, "--_RENDER-", timestamp, ".qmd")
+
+
+# make abs filepath for .qmd file
+f_qmd_render = paste0(d_f_md_render_ts, "/", basename_f_qmd)
+
+# make copy of file for Quarto render
+file.copy(
+	from = f_md,
+	to = f_qmd_render,
+	overwrite = TRUE
+)
+
+# copy assets folder to render dir
+d_assets = file.path(d_f_md, "assets")
+if (dir.exists(d_assets)) {
+	file.copy(
+		from = d_assets,
+		to = d_f_md_render_ts,
+		recursive = TRUE,
+		overwrite = TRUE
+	)
+}
+
+
+# specify formats to render
+v_s_render_formats = c('pdf', 'docx')
+
+# # change working dir to render output dir
+# setwd(d_f_qmd_render)
+# # check current working render dir
+# getwd()
+# # open working render dir
+# system(paste("open", shQuote(d_f_qmd_render)))
+
+
+
+# render .qmd file using Quarto
+quarto::quarto_render(
+	input = f_qmd_render, 
+  # output_format = 'pdf'
+  output_format = v_s_render_formats
+)
+
+# # open rendered file after it renders
+# f_qmd_pdf = paste0(tools::file_path_sans_ext(f_qmd), ".pdf")
+# system(paste0('open ', f_qmd_pdf))
+
+
+```
