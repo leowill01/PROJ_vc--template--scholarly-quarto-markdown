@@ -155,20 +155,23 @@ format:
 
 ---
 
-# SETUP
+# OUTLINE
+- intro
+- setup/requirements
+- usage
+- to do
+- 
 
-```{r}
-#| label: _setup
+# Introduction
 
-library(tidyverse)
-```
+This document is a Markdown (`.md`) file that uses a `_render` chunk to render into different output formats using the Quarto[^quarto1][^quarto2][^quarto3] scientific and technical publishing tool.
+The purpose of this document is to have a template and a collection of technical rules that allow plaintext editing of a long-form technical document that can also be rendered into multiple different formats (e.g. PDF, DOCX) from one source file.
+This document is built with the intention of editing, running, and rendering in the Positron IDE from Posit (formerly RStudio), although it can be rendered and run in any VS Code-based editor with the appropriate R extension that allows an attached R terminal session.
+This document intentionally has a Markdown extension (`.md`) for ease of editing in multiple different text editors and thus cannot be directly rendered into output formats using `quarto` because it doesn't have the Quarto Markdown extension (`.qmd`)—this is what the `_render` chunk is for.
 
-
-# INTRODUCTION
-
-This document is a Markdown (`.md`) file that uses a `_render` chunk to render into different output formats using `quarto`[^quarto1][^quarto2][^quarto3].
-This document is built with the intention of editing, running, and rendering in the Positron IDE from Posit (formerly RStudio).
-This document intentionally has a Markdown extention (`.md`) for ease of editing in multiple different text editors and thus cannot be directly rendered into output formats using `quarto` because it doesn't have the Quarto Markdown extension (`.qmd`); This is what the `_render` chunk is for.
+# To Do
+- [ ] add author affiliations/scholarly metadata functionality
+	- [ ] previously accomplished with the 'scholarly metadata' Lua filter for R Markdown.
 
 # Issues
 
