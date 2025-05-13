@@ -170,13 +170,11 @@ This document is a Markdown (`.md`) file that uses a `_render` chunk to render i
 This document is built with the intention of editing, running, and rendering in the Positron IDE from Posit (formerly RStudio).
 This document intentionally has a Markdown extention (`.md`) for ease of editing in multiple different text editors and thus cannot be directly rendered into output formats using `quarto` because it doesn't have the Quarto Markdown extension (`.qmd`); This is what the `_render` chunk is for.
 
-# TODO, ISSUES
+# Issues
 
 ## Bugs
 
-### OUTPUT
-
-#### PDF
+#### PDF Output
 
 - author affiliations and other metadata dont render
 - [x] broken code wrapping. [label](https://github.com/quarto-dev/quarto-cli/discussions/4121)
@@ -184,14 +182,9 @@ This document intentionally has a Markdown extention (`.md`) for ease of editing
 	- FIXED - used `include-in-header:` solution found [here](https://github.com/quarto-dev/quarto-cli/discussions/4121#discussioncomment-9824004) 
 - it seems like quarto doesnt handle level 6 lists when rendering to PDF
 
+### Editing
 
-
-
-#### MS WORD
-
-### EDITING
-
-#### POSITRON VISUAL EDITOR
+#### Positron Visual Editor Mode
 
 - lists dont support tab indentation
 - lists add extra space in between bullet and text. problem with visual mode.
