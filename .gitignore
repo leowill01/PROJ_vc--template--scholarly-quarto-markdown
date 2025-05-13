@@ -1,14 +1,14 @@
 ################ GIT IGNORE ################
 ################ BLACKLIST METHOD ################
-# the blacklist method operates under the principle of least ignore. 
-# this means that you should add the minimal ignore pattern to ignore the files/folders you are trying to ignore. 
+# the blacklist method operates under the principle of least ignore.
+# this means that you should add the minimal ignore pattern to ignore the files/folders you are trying to ignore.
 # if a lot of patterns start to show lots of similarities, consider abstracting a level to a more general pattern.
 
 # EXCLUDE FILES ================================
-# blacklist any specific file in any folder 
+# blacklist any specific file in any folder
 
 # EXCLUDE FILETYPES ================================
-# ignore any file or folder that contains a pattern 
+# ignore any file or folder that contains a pattern
 
 # files that never need tracking
 
@@ -16,3 +16,4 @@
 # EXCLUDE FOLDERS ================================
 # recurring utility folders that never need tracking
 _RENDER
+/.luarc.json
