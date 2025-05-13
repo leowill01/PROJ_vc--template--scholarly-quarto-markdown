@@ -5,13 +5,26 @@ subtitle: 'With a Focus on Scholarly Writing'
 
 
 # Author, affiliations  ################################################################
-author: 'Leo Williams'
+# Note the filter expects `institute`, not Quarto's `affiliations`
+author:
+  - name: "Alice Smith"
+    institute: [I1]
+  - name: "Bob Jones"
+    institute: [I1, I2]
+
+institute:
+  - id: I1
+    name: "University One"
+    address: "123 Main St, Townsville, Countryland"
+  - id: I2
+    name: "Institute Two"
+    address: "456 Side Rd, Cityburg, Nationstate"
 
 
 # Citations ################################################################
 bibliography: '/Users/leo/Zotero/my-zotero-library.bib'
-# csl: /Users/leo/Zotero/styles/nature.csl
-csl: /Users/leo/Zotero/styles/ieee.csl # to distinguish citations from footnotes
+csl: /Users/leo/Zotero/styles/nature.csl
+# csl: /Users/leo/Zotero/styles/ieee.csl # to distinguish citations from footnotes
 
 
 # Output ################################
@@ -20,12 +33,14 @@ execute:
 format: 
 # PDF ================================
   pdf:
+    filters:
+      - filters/author-info-blocks.lua
+      - filters/scholarly-metadata.lua
   # FONTS --------------------------------
     fontsize: 10pt
-    # mainfont: 'IBM Plex Serif'
-    mainfont: 'Source Serif 4'
-    sansfont: 'Graphik' # changes the default header font when rendering from Posit Quarto. 
-    monofont: 'SF Mono'
+    # mainfont: 'Source Serif 4'
+    # sansfont: 'Graphik' # changes the default header font when rendering from Posit Quarto. 
+    # monofont: 'SF Mono'
   # MARGINS --------------------------------
     # geometry: 
     #   - left=0.8in
@@ -49,10 +64,14 @@ format:
       text: |
         % ADJUST FONTS (more granular control) --------------------------
         \usepackage{fontspec}
+        \defaultfontfeatures[\\ttdefault]{Scale=0.8} % Set default scale for monospace fonts
         % just use to adjust size? ..........................
-        \setmainfont[Scale=1.0]{Source Serif 4}
-        \setsansfont[Scale=1.0]{Graphik}
-        \setmonofont[Scale=0.8]{SF Mono}
+        % \setmainfont[Scale=1.0]{Source Serif 4}
+        % \setsansfont[Scale=1.0]{Graphik}
+        % \setmonofont[Scale=0.8]{SF Mono}
+        % REMOVED: \setmainfont[Scale=1.0]
+        % REMOVED: \setsansfont[Scale=1.0]
+        % REMOVED: \setmonofont[Scale=0.8]
 
         % WRAP LONG LINES OF CODE --------------------------
         \usepackage{fvextra}
