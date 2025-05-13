@@ -657,6 +657,9 @@ You can also add custom prefix using `[Chunk @fig-plot]`: [Chunk @fig-plot].
 #| fig-cap: "Cylinders vs. MPG"
 #| lst-label: lst-mycodechunk
 #| lst-cap: my code chunk
+#| eval: true
+
+library(tidyverse)
 
 # plot simple mtcars plot
 mtcars %>%
@@ -835,6 +838,17 @@ d_assets = file.path(d_f_md, "assets")
 if (dir.exists(d_assets)) {
 	file.copy(
 		from = d_assets,
+		to = d_f_md_render_ts,
+		recursive = TRUE,
+		overwrite = TRUE
+	)
+}
+
+# copy filters folder to render dir
+d_filters = file.path(d_f_md, "filters")
+if (dir.exists(d_filters)) {
+	file.copy(
+		from = d_filters,
 		to = d_f_md_render_ts,
 		recursive = TRUE,
 		overwrite = TRUE
