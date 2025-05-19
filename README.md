@@ -39,6 +39,9 @@ tinytex::install_tinytex()
 
 3. To render the document to PDF and DOCX:
    - View the file in "Source" mode
+   - Ensure you have an active, attached R terminal:
+     - If using VS Code: Run `>R: Attach Active Terminal` to attach it to VS Code
+     - If using Positron: Make sure you have an active R console session
    - Run the `_RENDER` chunk at the bottom of the document (click the play button next to the chunk)
    
    When you run the render chunk, it automatically creates a copy of your .md file and converts it to a Quarto Markdown (.qmd) file. This .qmd file is then processed by Quarto to generate the final PDF and DOCX outputs.
