@@ -168,40 +168,6 @@ The purpose of this document is to have a template and a collection of technical
 This document is built with the intention of editing, running, and rendering in the Positron IDE from Posit (formerly RStudio), although it can be rendered and run in any VS Code-based editor with the appropriate R extension that allows an attached R terminal session.
 This document intentionally has a Markdown extension (`.md`) for ease of editing in multiple different text editors and thus cannot be directly rendered into output formats using `quarto` because it doesn't have the Quarto Markdown extension (`.qmd`)—this is what the `_render` chunk is for.
 
-# To Do
-- [ ] add author affiliations/scholarly metadata functionality
-	- [ ] previously accomplished with the 'scholarly metadata' Lua filter for R Markdown.
-
-# Issues
-
-## Bugs
-
-#### PDF Output
-
-- author affiliations and other metadata dont render
-- [x] broken code wrapping. [label](https://github.com/quarto-dev/quarto-cli/discussions/4121)
-	- [x] possible fix by including latex packages like .rmd did
-	- FIXED - used `include-in-header:` solution found [here](https://github.com/quarto-dev/quarto-cli/discussions/4121#discussioncomment-9824004) 
-- it seems like quarto doesnt handle level 6 lists when rendering to PDF
-
-### Editing
-
-#### Positron Visual Editor Mode
-
-- lists dont support tab indentation
-- lists add extra space in between bullet and text. problem with visual mode.
-- checklist rendering is broken
-- no way to turn off `--` rendering to en dash – in visual mode. only way is to enter in source mode first.
-
-## Enhancements
-
-- checklists
-	- add strikethrough and fade when checked
-	- checklist sorting
-- rendering
-	- render styling outline and background for inline code
-
-
 # Headers
 
 Quarto output to PDF supports up to 5 levels of headers.
@@ -715,9 +681,39 @@ Use the following div to add markdown info during editing but that will not appe
 So this TODO list will not appear in any rendered output:
 
 ::: {.content-hidden}
-# TODO
+# TODO (example - not a real header)
 - [ ] add more about role impact/ownership/etc
 :::
+
+# Issues
+
+## Bugs
+
+#### PDF Output
+
+- author affiliations and other metadata dont render
+- [x] broken code wrapping. [label](https://github.com/quarto-dev/quarto-cli/discussions/4121)
+	- [x] possible fix by including latex packages like .rmd did
+	- FIXED - used `include-in-header:` solution found [here](https://github.com/quarto-dev/quarto-cli/discussions/4121#discussioncomment-9824004) 
+- it seems like quarto doesnt handle level 6 lists when rendering to PDF
+
+### Editing
+
+#### Positron Visual Editor Mode
+
+- lists dont support tab indentation
+- lists add extra space in between bullet and text. problem with visual mode.
+- checklist rendering is broken
+- no way to turn off `--` rendering to en dash – in visual mode. only way is to enter in source mode first.
+
+## Enhancements
+
+- checklists
+	- add strikethrough and fade when checked
+	- checklist sorting
+- rendering
+	- render styling outline and background for inline code
+
 
 ## CONDITIONAL INCLUDES BY OUTPUT FORMAT
 
@@ -745,6 +741,10 @@ Some content here...
 
 
 
+
+# To Do
+- [ ] add author affiliations/scholarly metadata functionality
+	- [ ] previously accomplished with the 'scholarly metadata' Lua filter for R Markdown.
 
 # References
 
