@@ -33,11 +33,15 @@ tinytex::install_tinytex()
    DOC--template--academic-quarto-markdown/template--academic-quarto-markdown.md
    ```
 
+   The template is a regular Markdown (.md) file, making it highly portable and editable in any text editor of your choice. This means you can work on your document using your preferred editor, whether it's VS Code, Vim, Obsidian, or any other Markdown-compatible editor.
+
 2. Edit your content using Markdown syntax
 
 3. To render the document to PDF and DOCX:
    - View the file in "Source" mode
    - Run the `_RENDER` chunk at the bottom of the document (click the play button next to the chunk)
+   
+   When you run the render chunk, it automatically creates a copy of your .md file and converts it to a Quarto Markdown (.qmd) file. This .qmd file is then processed by Quarto to generate the final PDF and DOCX outputs.
    
 4. Your rendered files will be created in a timestamped directory inside `_RENDER/`
 
