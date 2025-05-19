@@ -666,7 +666,7 @@ use the quarto shortcode `{{< \pagebreak >}}` (no backslash - it's required to r
 
 
 
-## HIDE CONTENT FROM ANY OUTPUT FORMAT
+## HIDE CONTENT FROM ALL OUTPUT FORMAT
 
 Use the following div to add markdown info during editing but that will not appear when rendering to any format:
 
@@ -684,6 +684,31 @@ So this TODO list will not appear in any rendered output:
 # TODO (example - not a real header)
 - [ ] add more about role impact/ownership/etc
 :::
+
+## CONDITIONAL INCLUDES BY OUTPUT FORMAT
+
+This format is used to specify text within a div that is only rendered depending on the specified output format:
+
+```
+::: {.content-visible when-format="docx"}
+## Section to Include in Word
+
+This section will appear in Word (DOCX) output formats.
+
+Some content here...
+:::
+```
+
+So, the following text will only appear when the output is `pdf`:
+
+::: {.content-visible when-format="pdf"}
+### Section to Include in PDF
+
+This section will appear in PDF output format.
+
+Some content here... 
+:::
+
 
 
 # References

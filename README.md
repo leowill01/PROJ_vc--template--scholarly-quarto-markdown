@@ -112,28 +112,4 @@ If you encounter issues with PDF rendering:
 	- render styling outline and background for inline code
 
 
-## CONDITIONAL INCLUDES BY OUTPUT FORMAT
-
-This format is used to specify text within a div that is only rendered depending on the specified output format:
-
-```
-::: {.content-visible when-format="docx"}
-## Section to Include in Word
-
-This section will appear in Word (DOCX) output formats.
-
-Some content here...
-:::
-```
-
-So, the following text will only appear when the output is `pdf`:
-
-::: {.content-visible when-format="pdf"}
-### Section to Include in PDF
-
-This section will appear in PDF output format.
-
-Some content here... 
-:::
-
 
