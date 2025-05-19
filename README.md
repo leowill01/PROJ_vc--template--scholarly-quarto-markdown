@@ -76,3 +76,64 @@ If you encounter issues with PDF rendering:
 	tinytex::uninstall_tinytex()
 	tinytex::install_tinytex()
 	```
+
+# To Do
+- [ ] add author affiliations/scholarly metadata functionality
+	- [ ] previously accomplished with the 'scholarly metadata' Lua filter for R Markdown.
+
+
+# Issues
+
+## Bugs
+
+#### PDF Output
+
+- author affiliations and other metadata dont render
+- [x] broken code wrapping. [label](https://github.com/quarto-dev/quarto-cli/discussions/4121)
+	- [x] possible fix by including latex packages like .rmd did
+	- FIXED - used `include-in-header:` solution found [here](https://github.com/quarto-dev/quarto-cli/discussions/4121#discussioncomment-9824004) 
+- it seems like quarto doesnt handle level 6 lists when rendering to PDF
+
+### Editing
+
+#### Positron Visual Editor Mode
+
+- lists dont support tab indentation
+- lists add extra space in between bullet and text. problem with visual mode.
+- checklist rendering is broken
+- no way to turn off `--` rendering to en dash – in visual mode. only way is to enter in source mode first.
+
+## Enhancements
+
+- checklists
+	- add strikethrough and fade when checked
+	- checklist sorting
+- rendering
+	- render styling outline and background for inline code
+
+
+## CONDITIONAL INCLUDES BY OUTPUT FORMAT
+
+This format is used to specify text within a div that is only rendered depending on the specified output format:
+
+```
+::: {.content-visible when-format="docx"}
+## Section to Include in Word
+
+This section will appear in Word (DOCX) output formats.
+
+Some content here...
+:::
+```
+
+So, the following text will only appear when the output is `pdf`:
+
+::: {.content-visible when-format="pdf"}
+### Section to Include in PDF
+
+This section will appear in PDF output format.
+
+Some content here... 
+:::
+
+
