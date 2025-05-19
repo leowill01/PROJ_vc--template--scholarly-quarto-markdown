@@ -32,9 +32,9 @@ execute:
 format: 
 # PDF ================================
   pdf:
-    filters:
-      - filters/author-info-blocks.lua
-      - filters/scholarly-metadata.lua
+    # filters:
+    #   - filters/author-info-blocks.lua
+    #   - filters/scholarly-metadata.lua
   # FONTS --------------------------------
     fontsize: 10pt
     # mainfont: 'Source Serif 4'
@@ -345,8 +345,9 @@ syntax to make a cross referenceable table:
 
 ## Styling
 
-`To style text, use **this for bold**, *this for italics*, ***this for bold italics***, ~~this for strikethrough~~, [this for underline]{.underline}, ==this for highlight? (only in markdown editors it seems)==
-`
+```
+To style text, use **this for bold**, *this for italics*, ***this for bold italics***, ~~this for strikethrough~~, [this for underline]{.underline}, ==this for highlight? (only in markdown editors it seems)==
+```
 
 To style text, use **this for bold**, *this for italics*, ***this for bold italics***, ~~this for strikethrough~~, [this for underline]{.underline}, ==this for highlight? (only in markdown editors it seems)==
 
@@ -848,6 +849,17 @@ d_filters = file.path(d_f_md, "filters")
 if (dir.exists(d_filters)) {
 	file.copy(
 		from = d_filters,
+		to = d_f_md_render_ts,
+		recursive = TRUE,
+		overwrite = TRUE
+	)
+}
+
+# copy citations folder to render dir
+d_citations = file.path(d_f_md, "citations")
+if (dir.exists(d_citations)) {
+	file.copy(
+		from = d_citations,
 		to = d_f_md_render_ts,
 		recursive = TRUE,
 		overwrite = TRUE
