@@ -154,12 +154,6 @@ format:
 
 ---
 
-# OUTLINE
-- intro
-- setup/requirements
-- usage
-- to do
-- 
 
 # Introduction
 
