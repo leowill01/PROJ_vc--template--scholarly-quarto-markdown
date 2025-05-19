@@ -22,9 +22,8 @@ institute:
 
 
 # Citations ################################################################
-bibliography: '/Users/leo/Zotero/my-zotero-library.bib'
-csl: /Users/leo/Zotero/styles/nature.csl
-# csl: /Users/leo/Zotero/styles/ieee.csl # to distinguish citations from footnotes
+bibliography: 'citations/sample-bibliography.bib'
+csl: 'citations/nature.csl'
 
 
 # Output ################################
